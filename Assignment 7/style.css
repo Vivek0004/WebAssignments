@@ -1,0 +1,80 @@
+#outer-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+}
+span {
+    display: flex;
+    justify-content: center;
+    color: bisque;
+    font-size: 80%;
+}
+section {
+    background-image: url("./images/drizzle.jpg");
+    background-clip: content-box;
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+}
+
+
+input {
+    background-color: #b2f7ef;
+    padding-left: 5px;
+    height: 6vh;
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    border-bottom-right-radius:25px;
+    border-bottom-left-radius:25px;
+    width: 25vw;
+    margin-bottom: 5%;
+    resize: none;
+    outline: none;
+    font-size: 95%;
+    font-weight: 550;
+}
+button {
+    background-color: aqua;
+    height: 6vh;
+    border: 0px solid black;
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    border-bottom-right-radius:25px;
+    border-bottom-left-radius:25px;
+    width: 25vw; 
+    font-size: 75%;
+    font-weight:700;
+    margin-bottom: 5%;
+}
+
+#inner-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(5px);
+    border-radius: 25px;
+    padding: 5%;
+    width: 40vw;
+}
+#temp {
+    color: #4a4e69;
+    font-size: 100%;
+}
+#city {
+    color: #ef233c;
+    font-size: 100%;
+    font-weight: 600;
+}
+#minmax {
+    color: #40916c;
+}
+#visibility {
+    color: #5e6472;
+}
+#weathertext {
+    color: #31572c;
+}
