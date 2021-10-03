@@ -12,15 +12,17 @@ function refreshItems()
         work.map((val)=>{
                
                 flag=true;
-                content.insertAdjacentHTML("afterbegin",`<div class="items" id="${val.id}">
-                <h3>${val.text}</h3>
-               <div class="prop">
-                   <i class="fas fa-sort-up"></i>
-                   <i class="fas fa-sort-down"></i>
-                   <i class="fas fa-check-square"></i>
-                   <i class="fas fa-trash"></i>
-                   <i class="far fa-edit"></i>
+                content.insertAdjacentHTML("afterbegin",`
+                
+                <div class="items" id="${val.id}">
+                <div class="prop">
+                
+                <i class="fas close">&#10006</i>
+                <i class="fas up">&#8593</i>
+                <i class="fas down">&#8595</i>
                </div>
+                <h3>${val.text}</h3>
+               
             </div>`);
                
         })
@@ -50,14 +52,11 @@ document.addEventListener("keydown",(e)=>{if(e.key==="Enter")
 }});
 btn.addEventListener("click",()=>{
     addData();
-    btn.style.transition="all 1s ease";
+    
     if(flag)
     {
-        btn.innerHTML='<i class="fas fa-check"></i>';
-    function changeIcon(){
-        btn.innerHTML='<i class="far fa-paper-plane"></i>';
-        flag=false;
-    }
+        btn.innerHTML='';
+    
     setTimeout(changeIcon,500);
     }
     
@@ -66,7 +65,7 @@ btn.addEventListener("click",()=>{
 content.addEventListener('click', deleteCheck);
 function  deleteCheck(e){
 const item=e.target;
-if(item.classList[1]==="fa-sort-up")
+if(item.classList[1]==="up")
 {
     const todo=item.parentElement.parentElement.getAttribute('id');
     console.log(todo);
@@ -91,7 +90,7 @@ if(item.classList[1]==="fa-sort-up")
          alert("chill!!");
      }
 }
-if(item.classList[1]==="fa-sort-down")
+if(item.classList[1]==="down")
 {
     const todo=item.parentElement.parentElement.getAttribute('id');
     console.log(todo);
@@ -117,27 +116,14 @@ if(item.classList[1]==="fa-sort-down")
          alert("Chill");
      }
 }
-if(item.classList[1]==="fa-trash")
+if(item.classList[1]==="close")
 {
     const todo=item.parentElement.parentElement;
- todo.classList.add("slide-out-elliptic-top-bck");
-todo.addEventListener("animationend",()=>todo.remove());
+
+todo.remove();
 const newArray=work.filter(({id})=>id!=todo.getAttribute("id"));
 work=newArray;
 
-}
-if(item.classList[1]==="fa-check-square")
-{
-    item.parentElement.parentElement.children[0].style.textDecoration="line-through";
-    item.parentElement.parentElement.classList.toggle("rotate-vert-center");
-}
-if(item.classList[1]==="fa-edit")
-{
-  const change= prompt("edit here!");
-  if(change!="")
-  item.parentElement.parentElement.children[0].innerText=change;
-  }
-  //to change prorities
 }
 /// to filter options
 btn1.addEventListener("click",(e)=>{
@@ -174,4 +160,4 @@ btn1.addEventListener("click",(e)=>{
         }
     });;
 
-});
+});}
